@@ -3,7 +3,6 @@ import { CheckValidation } from '../utilis/Validation';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../utilis/Firebase"
-import {Navigate, useNavigate} from "react-router-dom"
 import Header from './Header';
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from 'react-redux';
@@ -16,7 +15,6 @@ const Login = () => {
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();  
   const dispatch = useDispatch();
 
 
@@ -35,7 +33,6 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email.current.value , password.current.value)
         .then((userCredential) => {
             const user = userCredential.user;
-            navigate("/browse");
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -65,7 +62,7 @@ const Login = () => {
                         photoURL:photoURL
                     })
                 )
-                navigate("/browse");
+
               }).catch((error) => {
                 setErrorMessage(error.message)
               });
