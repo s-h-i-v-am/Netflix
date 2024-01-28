@@ -9,7 +9,7 @@ const Movies = () => {
   if(!nowPlayings || !popularMovies) return;
 
   return (
-    <div className='bg-slate-900 px-10'>
+    <div className='bg-black px-10'>
         <MovieList title={"Now Playing"} movies={nowPlayings}/>
         <MovieList title={"Popular"} movies={popularMovies}/>
         <MovieList title={"Trending"} movies={nowPlayings}/>
